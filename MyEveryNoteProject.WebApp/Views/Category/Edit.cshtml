@@ -1,0 +1,65 @@
+﻿@using MyEveryNoteProject.WebApp
+@model MyEveryNoteProject.Entities.Category
+
+@{
+    Layout = "~/Views/Shared/_BackgroundLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+  
+@*deneme*@
+
+<div class="container" style="background-color:antiquewhite;border-radius:30px;padding:25px;margin-top:30px;">
+
+
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div style="margin-top:10px;margin-bottom:10px;padding:20px;background-color:palevioletred;">
+            <h4 style="color:whitesmoke;"><b>User Information For Edit</b></h4>
+
+        </div>
+        <hr />
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" }) @*true yaparsan altında gözükecektir.*@
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control color" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control color" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @BootstrapHelper.DefaultButton("warning", "btn-sm", "submit", "fas fa-check", "Save")
+                @BootstrapHelper.DefaultLinkButton("/Category/Index/", "info", "btn-sm", string.Empty, "far fa-arrow-alt-circle-left", "Back to List")
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+@*deneme*@
+   
+}
+
+
+
+
+
+

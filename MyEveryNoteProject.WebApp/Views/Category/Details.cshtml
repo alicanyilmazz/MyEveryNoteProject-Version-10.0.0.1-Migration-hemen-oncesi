@@ -1,0 +1,75 @@
+﻿@using MyEveryNoteProject.WebApp
+@model MyEveryNoteProject.Entities.Category
+
+@{
+    Layout = "~/Views/Shared/_BackgroundLayout.cshtml";
+}
+
+
+
+
+
+    <div class="container" style="background-color:antiquewhite;border-radius:30px;padding:25px;margin-top:30px;">
+        @*dneme*@
+
+
+        <div style="margin-top:10px;margin-bottom:10px;padding:20px;background-color:forestgreen;">
+
+            <h4 style="color:whitesmoke;"><b>Category Details</b></h4>
+
+        </div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifierUser)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifierUser)
+            </dd>
+
+        </dl>
+
+
+        @*deneme*@
+
+        <p>
+            @BootstrapHelper.DefaultLinkButton("/Category/Edit/" + Model.Id, "warning", "btn-sm", string.Empty, "far fa-edit", "Edit")
+            @BootstrapHelper.DefaultLinkButton("/Category/Index/", "success", "btn-sm", string.Empty, "far fa-edit", "Back to List")
+        </p>
+
+    </div>
+
+

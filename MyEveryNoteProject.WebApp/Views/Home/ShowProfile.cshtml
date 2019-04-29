@@ -1,0 +1,234 @@
+﻿@using MyEveryNoteProject.WebApp
+@using MyEveryNoteProject.Entities
+@model EveryNoteUser
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="icon" type="image/png" href="~/Content/Profile Page/assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>ShowProfile</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <link href="~/Content/Profile Page/assets/css/material-kit.css" rel="stylesheet" />
+
+    <link href="~/Content/GeneralTheme/css/ScrollBar.css" rel="stylesheet" />
+    <link href="~/Content/Profile Page/assets/demo/demo.css" rel="stylesheet" />
+    <link href="~/Content/Fontawesome/css/all.css" rel="stylesheet" />
+</head>
+<body class="profile-page sidebar-collapse">
+    <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="/Home/Index">
+                    UNWEAS
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="fas fa-cube" style="font-size:large;margin-right:5px;"></i> BLOG MANAGEMENT
+                        </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="/Article/Create/" class="dropdown-item">
+                                <i class="far fa-edit" style="font-size:large;margin:3px;"></i> Add Note
+                            </a>
+                            <a href="/Article/Index/" class="dropdown-item">
+                                <i class="far fa-file-alt" style="font-size:large;margin:5px;"></i> My Notes
+                            </a>
+                            <a href="/Article/MyLikedNotes/" class="dropdown-item">
+                                <i class="far fa-thumbs-up" style="font-size:large;margin:3px;"></i> Liked Articles
+                            </a>
+                        </div>
+                    </li>
+                    @if (Model.IsAdmin == true)
+                    {
+
+                        <li class="nav-item">
+                            @BootstrapHelper.MenuLink("/Category/Create", "white", "far fa-edit", "large", "3px", "ADD CATEGORY")
+                        </li>
+                        <li class="nav-item">
+                            @BootstrapHelper.MenuLink("/Category/Index", "white", "far fa-file-alt", "large", "5px", "CATEGORIES")
+                        </li>
+
+                        <li class="nav-item">
+                            @BootstrapHelper.MenuLink("/EveryNoteUser/Create", "white", "fas fa-user-plus", "large", "3px", "ADD USER")
+                        </li>
+                        <li class="nav-item">
+                            @BootstrapHelper.MenuLink("/EveryNoteUser/Index", "white", "fas fa-user-circle", "large", "5px", "USERS")
+                        </li>
+
+                    }
+                    @*Ekleme*@
+                    <li class="dropdown nav-item">
+                        <a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown" style="margin-left:20px;">
+                            <div class="profile-photo-small">
+                                <img src="~/images/userimg/@Model.ProfileImageFileName" alt="Circle Image" class="rounded-circle img-fluid" style="margin-top:7px;">
+                            </div>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <h6 class="dropdown-header">Account Settings</h6>
+                            <a href="/Home/Index" class="dropdown-item">Home Page</a>
+                            <a href="/Home/EditProfile" class="dropdown-item">Edit My Account</a>
+                            <a href="#pablo" class="dropdown-item">Blogs</a>
+                            <a href="/Home/SignOut" class="dropdown-item">Sign out</a>
+                        </div>
+                    </li>
+                    @*Ekleme*@
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('/images/daily2.jpg');"></div> @*Burasi*@
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="~/images/userimg/@Model.ProfileImageFileName" alt="Circle Image" class="img-raised rounded-circle img-fluid"> @*Burasi*@
+                            </div>
+                            <div class="name">
+                                <h3 class="title">@Model.Username</h3>
+                                <h6>Designer</h6>
+                                @*<a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="description text-center">
+                    <p>An artist of considerable range, Chet Faker &#x2014; the name taken by Melbourne-raised, Brooklyn-based Nick Murphy &#x2014; writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile-tabs">
+                            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                                        <i class="far fa-thumbs-up"></i> My Favourite
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#works" role="tab" data-toggle="tab">
+                                        <i class="far fa-heart"></i> My Liked
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                                        <i class="far fa-clock"></i> My Post
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content tab-space">
+                    <div class="tab-pane active text-center gallery" id="studio">
+                        <div class="row">
+                            <div class="col-md-3 ml-auto">
+                                <img src="~/Content/Profile Page/assets/img/examples/studio-1.jpg" class="rounded"> @*Burasi*@
+                                <img src="~/Content/Profile Page/assets/img/examples/studio-2.jpg" class="rounded"> @*Burasi*@
+                            </div>
+                            <div class="col-md-3 mr-auto">
+                                <img src="~/Content/Profile Page/assets/img/examples/studio-5.jpg" class="rounded"> @*Burasi*@
+                                <img src="~/Content/Profile Page/assets/img/examples/studio-4.jpg" class="rounded"> @*Burasi*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane text-center gallery" id="works">
+                        <div class="row">
+                            <div class="col-md-3 ml-auto">
+                                <img src="~/Content/Profile Page/assets/img/examples/olu-eletu.jpg" class="rounded"> @*Burasi*@
+                                <img src="~/Content/Profile Page/assets/img/examples/clem-onojeghuo.jpg" class="rounded"> @*Burasi*@
+                                <img src="~/Content/Profile Page/assets/img/examples/cynthia-del-rio.jpg" class="rounded"> @*Burasi*@
+                            </div>
+                            <div class="col-md-3 mr-auto">
+                                <img src="~/Content/Profile Page/assets/img/examples/mariya-georgieva.jpg" class="rounded"> @*Burasi*@
+                                <img src="~/Content/Profile Page/assets/img/examples/clem-onojegaw.jpg" class="rounded"> @*Burasi*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane text-center gallery" id="favorite">
+                        <div class="row">
+                            <div class="col-md-3 ml-auto">
+                                <img src="~/Content/Profile Page/assets/img/examples/mariya-georgieva.jpg" class="rounded"> @*Burasi*@
+                                <img src="~/Content/Profile Page/assets/img/examples/studio-3.jpg" class="rounded"> @*Burasi*@
+                            </div>
+                            <div class="col-md-3 mr-auto">
+                                <img src="~/Content/Profile Page/assets/img/examples/clem-onojeghuo.jpg" class="rounded"> @*Burasi*@
+                                <img src="~/Content/Profile Page/assets/img/examples/olu-eletu.jpg" class="rounded"> @*Burasi*@
+                                <img src="~/Content/Profile Page/assets/img/examples/studio-1.jpg" class="rounded"> @*Burasi*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer footer-default">
+        <div class="container">
+            <nav class="float-left">
+                <ul>
+                    <li>
+                        <a href="https://www.creative-tim.com">
+                            Creative Tim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://creative-tim.com/presentation">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://blog.creative-tim.com">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.creative-tim.com/license">
+                            Licenses
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright float-right">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script>, made with <i class="material-icons">favorite</i> by
+                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            </div>
+        </div>
+    </footer>
+  
+    <script src="~/Content/Profile Page/assets/js/core/jquery.min.js" type="text/javascript"></script> @*Burasi*@
+    <script src="~/Content/Profile Page/assets/js/core/popper.min.js" type="text/javascript"></script> @*Burasi*@
+    <script src="~/Content/Profile Page/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script> @*Burasi*@
+    <script src="~/Content/Profile Page/assets/js/plugins/moment.min.js"></script> @*Burasi*@
+    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+    @*<script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>*@ @*Burasi*@
+    <script src="~/Content/Profile Page/assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    @*<script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>*@ @*Burasi*@
+    <script src="~/Content/Profile Page/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script> @*Burasi*@
+    <script src="~/Content/Profile Page/assets/js/material-kit.js" type="text/javascript"></script>
+    <script src="~/Content/Fontawesome/js/all.js"></script>
+</body>
+</html>

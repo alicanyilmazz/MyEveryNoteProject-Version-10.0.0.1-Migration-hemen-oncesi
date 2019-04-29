@@ -1,0 +1,106 @@
+﻿@model MyEveryNoteProject.Entities.Article
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BackgroundLayout.cshtml";
+}
+
+
+
+<div class="container" style="background-color:antiquewhite;border-radius:30px;padding:25px;margin-top:30px;">
+    @*dneme*@
+
+
+    <div style="margin-top:10px;margin-bottom:10px;padding:20px;background-color:forestgreen;">
+
+        <h4 style="color:whitesmoke;"><b>Article Details</b></h4>
+
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Categories.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categories.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDraft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDraft)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LikeCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LikeCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleImageFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleImageFileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifierUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifierUser)
+        </dd>
+
+    </dl>
+
+    <p>
+        @BootstrapHelper.DefaultLinkButton("/Article/Edit/" + Model.Id, "warning", "btn-sm", string.Empty, "far fa-edit", "Edit")
+        @BootstrapHelper.DefaultLinkButton("/Article/Index/", "success", "btn-sm", string.Empty, "far fa-edit", "Back to List")
+    </p>
+
+
+
+</div>
+
+
+
+

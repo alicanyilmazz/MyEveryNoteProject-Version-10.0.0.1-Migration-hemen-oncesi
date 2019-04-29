@@ -1,0 +1,110 @@
+﻿@model MyEveryNoteProject.Entities.EveryNoteUser
+@using MyEveryNoteProject.WebApp
+@{
+    Layout = "~/Views/Shared/_BackgroundLayout.cshtml";
+}
+
+
+    <div class="container" style="background-color:antiquewhite;border-radius:30px;padding:25px;margin-top:20px;">
+
+    
+
+            <div>
+                <div style="margin-top:10px;margin-bottom:10px;padding:20px;background-color:forestgreen;">
+
+                    <h4 style="color:whitesmoke;"><b>User Information Details</b></h4>  
+
+                </div>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Surname)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Surname)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Username)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Username)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Password)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Password)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IsActive)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsAdmin)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IsAdmin)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatedOn)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CreatedOn)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ModifiedOn)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ModifiedOn)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ModifierUser)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ModifierUser)
+                    </dd>
+
+                </dl>
+            </div>
+
+
+       
+        <p>
+            @BootstrapHelper.DefaultLinkButton("/EveryNoteUser/Edit/" + Model.Id, "warning", "btn-sm", string.Empty, "far fa-edit", "Edit")
+            @BootstrapHelper.DefaultLinkButton("/EveryNoteUser/Index/", "success", "btn-sm", string.Empty, "far fa-edit", "Back to List")
+        </p>
+    </div>
+   
